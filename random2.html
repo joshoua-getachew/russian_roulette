@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random</title>
+</head>
+<style>
+    body{
+        background: linear-gradient(135deg, #1a0000, #330000, #1a0000);
+        color: rgb(133, 19, 19);
+        background-size: 400% 400%;
+        animation: bgAnimation 10s ease infinite;
+    }
+
+    .btn{
+        color: rgb(0, 0, 0);
+        background-color: rgb(20, 19, 19);
+        font-size: 1.2em;
+        padding: 12px 18px;
+        border-radius: 15px;
+    }
+
+    @keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+    
+</style>
+<body>
+
+    <header style="text-align: center; margin-top: 75px; text-decoration: underline 2px;">
+            <h1 style="font-size: 3em;">welcome <br>to wiskors death rouleet</h1>
+    </header>
+<main>
+
+    <div style="text-align: center; font-size: 1.5em;  color: rgb(0, 0, 0);">
+        <p>One chamber. One bullet. Zero mercy.<br>Will you tempt fate or cower in the face of death?</p>
+
+    </div>
+
+    <div id="btn-container" style="text-align: center;">
+        <button class="btn" id="spin">spin the chamber</button>
+        <button class="btn" id="pull">pull the trigger</button>
+    </div>
+
+    <div id="tt" style="text-align: center; font-size: 1.5em;  color: rgb(0, 0, 0);" >
+
+    </div>
+</main>
+
+
+    <script>
+
+        const spin = document.getElementById("spin");
+        const pull = document.getElementById("pull");
+        const tt = document.getElementById("tt");
+        const chamber = document.createElement('h3');
+        let randomNum;
+        let userinput;
+
+        spin.onclick = () =>{
+
+            randomNum = Math.floor(Math.random()*6)+ 1;
+            console.log(randomNum);
+            spin.style.display = "none";
+           chamber.innerHTML="chamber has been loaded";
+            tt.append(chamber);
+        }
+
+        pull.onclick = () =>{
+            userinput = Math.floor(Math.random()*6)+ 1;
+            console.log(userinput);
+            render();
+        }
+        
+        function render(){
+            
+        if(userinput == randomNum){
+            console.log("you lost")
+            chamber.innerHTML="you lost";
+        }
+        else{
+            console.log("you survived")
+            chamber.innerHTML="you survived";
+
+        }
+
+        
+
+        }
+
+        
+        
+    </script>
+</body>
+</html>
